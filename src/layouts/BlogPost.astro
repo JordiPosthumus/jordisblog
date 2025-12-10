@@ -1,0 +1,177 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    pubDate: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <article class="bg-white py-16 sm:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <header class="mb-12">
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-6">
+          {frontmatter.title}
+        </h1>
+        
+        <div class="flex items-center space-x-4 text-sm text-gray-500 mb-8">
+          <time datetime={frontmatter.pubDate}>
+            {new Date(frontmatter.pubDate).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </time>
+          
+          <span>•</span>
+          
+          <span class="text-blue-600">Market Analysis</span>
+        </div>
+        
+        {frontmatter.description && (
+          <p class="text-xl text-gray-600 leading-relaxed">
+            {frontmatter.description}
+          </p>
+        )}
+      </header>
+
+      <div class="prose prose-lg max-w-none">
+        <slot />
+      </div>
+
+      <!-- Analysis Resources Section -->
+      <aside class="mt-16 bg-gray-50 rounded-lg p-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Analysis Resources</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <a 
+            href="/charts/silver_gold_analysis.png" 
+            target="_blank"
+            class="block p-4 bg-white rounded border hover:border-blue-500 transition-colors"
+          >
+            <h4 class="font-medium text-gray-900">📊 Interactive Charts</h4>
+            <p class="text-sm text-gray-600 mt-1">Historical silver-gold ratio analysis and price trends</p>
+          </a>
+          
+          <a 
+            href="/charts/executive_summary.html" 
+            target="_blank"
+            class="block p-4 bg-white rounded border hover:border-blue-500 transition-colors"
+          >
+            <h4 class="font-medium text-gray-900">⚡ Quick Summary</h4>
+            <p class="text-sm text-gray-600 mt-1">Executive summary with key market indicators</p>
+          </a>
+        </div>
+      </aside>
+
+      <!-- Call to Action -->
+      <div class="mt-16 bg-gradient-to-r from-blue-600 to-purple-700 rounded-xl p-8 text-white">
+        <h3 class="text-2xl font-bold mb-4">Stay Updated on Silver Market Developments</h3>
+        <p class="text-lg mb-6 opacity-90">
+          Get the latest analysis on precious metals markets, supply-demand dynamics, and price forecasts.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a 
+            href="/" 
+            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-gray-100 transition-colors"
+          >
+            Back to Blog
+          </a>
+          
+          <div class="text-sm opacity-80 self-center">
+            Analysis by Jordi Posthumus | December 10, 2025
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style is:global>
+  .prose {
+    color: #374151;
+    max-width: none;
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    color: #111827;
+    font-weight: 700;
+  }
+
+  .prose h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+  }
+
+  .prose h3 {
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+  }
+
+  .prose p {
+    margin-bottom: 1.25rem;
+    line-height: 1.75;
+  }
+
+  .prose ul,
+  .prose ol {
+    margin-bottom: 1.25rem;
+    padding-left: 1.625rem;
+  }
+
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+
+  .prose blockquote {
+    font-style: italic;
+    border-left: 4px solid #e5e7eb;
+    padding-left: 1rem;
+    margin: 1.6em 0;
+    color: #4b5563;
+  }
+
+  .prose strong {
+    font-weight: 600;
+    color: #111827;
+  }
+
+  .prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+  }
+
+  .prose th,
+  .prose td {
+    border: 1px solid #e5e7eb;
+    padding: 0.75rem;
+    text-align: left;
+  }
+
+  .prose th {
+    background-color: #f9fafb;
+    font-weight: 600;
+  }
+
+  .prose code {
+    background-color: #f3f4f6;
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    color: #1f2937;
+  }
+</style>
