@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "start": "astro dev", 
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "deploy": "./deploy.sh",
+    "deploy-quick": "./deploy-quick.sh"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",

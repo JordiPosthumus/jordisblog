@@ -20,21 +20,47 @@ Comprehensive analysis revealing how silver shattered the $60 barrier for the fi
 - Industrial demand revolution breakdown
 - Investment strategy recommendations
 
-## Development
+```bash
+./dev.sh help     # Show all available commands
+
+# Alternative npm scripts (same as above)
+npm run dev       # Start development server
+npm run build     # Build for production  
+npm run preview   # Preview production build
+```
+
+## Deployment Options
+
+### Option 1: Interactive Deployment (Recommended)
 
 ```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production  
-npm run build
-
-# Preview production build
-npm run preview
+./deploy.sh
 ```
+
+This script will:
+- ✅ Check Git status and prompt to commit changes  
+- ✅ Optionally build locally for testing
+- ✅ Push to GitHub
+- ✅ Trigger Vercel deployment  
+- ✅ Show deployment status
+
+### Option 2: Quick Deployment (Fast)
+
+```bash
+./deploy-quick.sh  
+# or use npm script:
+npm run deploy-quick
+```
+
+Auto-commits changes with timestamp and pushes immediately.
+
+### Option 3: Manual Deployment
+
+```bash
+git add .
+git commit -m "Your message"  
+git push origin main
+# Vercel auto-deploys within 1-2 minutes
 
 ## Deployment to Vercel
 
