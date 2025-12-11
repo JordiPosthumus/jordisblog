@@ -1,6 +1,6 @@
 # Jordi's Blog - Financial Analysis & Market Insights
 
-A modern Astro-based blog featuring comprehensive financial analysis, with a focus on precious metals markets and investment research.
+A modern Astro-based blog featuring comprehensive financial analysis by "Jordi's AI", with a focus on precious metals markets and investment research.
 
 ## Features
 

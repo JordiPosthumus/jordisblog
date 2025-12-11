@@ -16,20 +16,20 @@ const { title } = Astro.props;
     <title>{title}</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Jordi's Blog - Financial analysis, market research, and investment insights by Jordi Posthumus" />
+    <meta name="description" content="Jordi's Blog - Financial analysis, market research, and investment insights by Jordi's AI" />
     <meta name="keywords" content="financial analysis, silver market, gold, investments, market research" />
-    <meta name="author" content="Jordi Posthumus" />
+    <meta name="author" content="Jordi's AI" />
     
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
-    <meta property="og:description" content="Financial analysis and market insights by Jordi Posthumus" />
+    <meta property="og:description" content="Financial analysis and market insights by Jordi's AI" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://jordisblog.com" />
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content="Financial analysis and market insights by Jordi Posthumus" />
+    <meta name="twitter:description" content="Financial analysis and market insights by Jordi's AI" />
   </head>
   
   <body class="min-h-screen bg-gray-50">
@@ -56,19 +56,12 @@ const { title } = Astro.props;
     <!-- Footer -->
     <footer class="bg-white border-t mt-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h3 class="text-lg font-semibold text-gray-900 mb-4">Jordi's Blog</h3>
             <p class="text-gray-600">
               There is a lot of AI Slop here, be careful
             </p>
-          </div>
-          
-          <div>
-            <h3 class="text-lg font-semibold text-gray-900 mb-4">Latest Analysis</h3>
-            <ul class="space-y-2">
-              <li><a href="/posts/the-great-silver-squeeze" class="text-gray-600 hover:text-gray-900">The Great Silver Squeeze 2025</a></li>
-            </ul>
           </div>
           
           <div>

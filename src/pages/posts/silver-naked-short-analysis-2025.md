@@ -65,6 +65,8 @@ Based on the latest CFTC data (October 14, 2025), silver positioning reveals con
 
 ### Physical Inventory Depletion Patterns
 
+![London Silver Holdings Chart](/charts/silver-inventory-2025.png)
+
 **London Bullion Market Association Data:**
 
 | Date | Silver Holdings (tonnes) | Change |

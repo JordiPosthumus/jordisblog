@@ -7,7 +7,7 @@ Your blog is ready! Now you need to push it to GitHub. Here's exactly what to do
 1. **Go to [github.com](https://github.com)** and sign in
 2. Click the green **"New repository"** button (or "+" → "New repository")
 3. **Repository name**: `jordisblog` 
-4. **Description**: "Financial analysis blog by Jordi Posthumus - Silver market research & investment insights"
+4. **Description**: "Financial analysis blog by Jordi's AI - Silver market research & investment insights"
 5. **Keep it public** (so Vercel can access it)
 6. ✅ Check "Add a README file" (optional)
 7. Click **"Create repository"**
