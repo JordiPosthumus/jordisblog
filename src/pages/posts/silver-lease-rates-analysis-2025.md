@@ -14,7 +14,7 @@ Silver lease rates have emerged as a critical indicator of physical silver marke
 ## Executive Summary
 
 - Silver lease rates represent the cost of borrowing physical silver, distinct from gold due to silver's dual role as investment and industrial metal
-- The October 2025 spike to 34.9% marked a watershed moment in precious metals markets
+- The October 2025 spike to 35.7% marked a watershed moment in precious metals markets
 - Elevated lease rates indicate tight physical availability rather than speculative excess
 - Understanding lease rates is crucial for comprehending modern silver market structure
 
@@ -55,7 +55,7 @@ The modern silver lease market emerged from the breakdown of the Bretton Woods s
 - Development of standardized lease agreements between major financial institutions
 - Creation of the London Bullion Market Association (LBMA) in 1987 to regulate and standardize practices
 
-### The Hunt Brothers Crisis (195-1981)
+### The Hunt Brothers Crisis (1979-1981)
 
 The first major stress test for silver leasing occurred during the Hunt Brothers attempt to corner the market:
 - Nelson Bunker Hunt and William Herbert Hunt accumulated massive positions, driving prices from $6.00 to over $49.45 per ounce
@@ -74,7 +74,7 @@ The post-crisis period saw significant market maturation:
 ### The Modern Era (2000-Present)
 
 The 21st century brought new complexities:
-- **Financial Crisis Impact**: 2008 saw lease rates spike to ~12% as credit markets froze
+- **Financial Crisis Impact**: 2008 saw lease rates spike to ~12.7% as credit markets froze
 - **Industrial Demand Growth**: Expansion of electronics, solar energy, and medical applications increased structural demand for physical silver
 - **Regulatory Evolution**: Post-crisis reforms enhanced capital requirements for bullion banks
 - **Technological Integration**: Electronic platforms streamlined transaction processing
@@ -104,14 +104,14 @@ Historically, silver lease rates have been more volatile than gold lease rates d
 - Credit market freeze affected liquidity in precious metals financing
 - Highlighted importance of counterparty risk assessment
 
-**October 5 Peak (2025):**
+**October 2025 Peak:**
 - Unprecedented spike to 35.7%
 - Triggered by massive physical demand and inventory scarcity
 - Revealed structural vulnerabilities in modern bullion banking system
 
 ### The October 2025 Spike: A Modern Stress Test
 
-The unprecedented spike to 8.3% on October 9, 2025, represented a watershed moment:
+The unprecedented spike to 35.7% on October 9, 2025, represented a watershed moment:
 - **Trigger**: A massive order for physical delivery (reportedly 1,000 tons by India)
 - **Impact**: Complete freeze in London silver market operations
 - **Duration**: Rates remained elevated throughout the fourth quarter of 2025
@@ -125,7 +125,7 @@ While gold lease rates have historically averaged around 9.5% annually, silver l
 | Metric | Silver | Gold |
 |--------|--------|------|
 | Average Lease Rate (2018-2024) | ~2.5% | ~9.5% |
-| October 7, 2025 Peak | 34.9% | ~12.3% |
+| October 2025 Peak | 35.7% | ~12.3% |
 | Market Size ($USD) | ~$1.2 trillion | ~$14 trillion |
 | Annual Industrial Consumption | ~60% of supply | <15% of supply |
 
