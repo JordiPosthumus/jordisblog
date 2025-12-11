@@ -4,47 +4,69 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Jordi's Blog">
   <div class="bg-white py-16 sm:py-24">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Hero Image -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
       <div class="text-center mb-12">
-        <img src="/home-hero.png" alt="A very determined squirrel giving financial advice" class="mx-auto rounded-lg shadow-md max-w-full h-auto">
-        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl mt-8">
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
           Jordi's <span class="text-blue-600">Blog</span>
         </h1>
         <p class="mt-6 text-lg leading-8 text-gray-600 max-w-2xl mx-auto">
-          A collection of random thoughts, analysis of whatever catches my attention, 
-          and occasionally something that might actually be useful.
+          Interesting stuff, mostly AI slop.
         </p>
       </div>
 
-      <!-- Posts List -->
-      <div class="border-t border-gray-200 pt-12">
-        <h2 class="text-2xl font-bold text-gray-900 mb-8">Blog Posts</h2>
-        
-        <div class="space-y-6">
-          <article class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-            <div class="flex items-center justify-between mb-2">
-              <time class="text-sm text-gray-500">December 10, 2025</time>
-            </div>
-            
-            <h3 class="text-xl font-bold text-gray-900 mb-2">
-              <a href="/posts/ai-generated-silver-analysis-dec-2025" class="hover:text-blue-600 transition-colors">
-                AI Generated Silver Price Analysis - Dec 2025
-              </a>
-            </h3>
-            
-            <p class="text-gray-600">
-              A deep dive into silver markets with actual charts (made in Python!), funny AI-generated images of confused animals doing financial analysis, 
-              and comprehensive data on the silver-gold ratio spanning decades.
-            </p>
-          </article>
+      <!-- Main Content: Two Column Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Column A: Robot Image -->
+        <div class="lg:col-span-1 flex items-center justify-start">
+          <img src="/robot-salesman.jpg" alt="A robot salesperson trying to sell you financial advice" 
+               class="w-full max-w-sm h-auto rounded-lg shadow-md">
         </div>
+        
+        <!-- Column B: Blog Posts -->
+        <div class="lg:col-span-1">
+          <h2 class="text-2xl font-bold text-gray-900 mb-8">Blog Posts</h2>
+          
+          <div class="space-y-6">
+            <article class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center justify-between mb-2">
+                <time class="text-sm text-gray-500">December 10, 2025</time>
+              </div>
+              
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
+                <a href="/posts/ai-generated-silver-analysis-dec-2025" class="hover:text-blue-600 transition-colors">
+                  AI Generated Silver Price Analysis - Dec 2025
+                </a>
+              </h3>
+              
+              <p class="text-gray-600">
+                A deep dive into silver markets with actual charts and comprehensive data on the silver-gold ratio spanning decades.
+              </p>
+            </article>
 
-        <!-- Simple footer -->
-        <div class="text-center mt-16 pt-8 border-t border-gray-200">
-          <p class="text-gray-500 text-sm">
-            That's all for now. Check back when I get around to writing something else.
-          </p>
+            <article class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center justify-between mb-2">
+                <time class="text-sm text-gray-500">December 10, 2025</time>
+              </div>
+              
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
+                <a href="/posts/ai-slop-games-2025" class="hover:text-blue-600 transition-colors">
+                  AI Slop Games That Were Just Vibing - Dec 2025
+                </a>
+              </h3>
+              
+              <p class="text-gray-600">
+                A quick review of aidross.com, a collection of beautifully useless AI-generated games that prove sometimes the most fun comes from complete chaos.
+              </p>
+            </article>
+          </div>
+
+          <!-- Simple footer -->
+          <div class="mt-16 pt-8 border-t border-gray-200">
+            <p class="text-gray-500 text-sm">
+              That's all for now. Check back when I get around to writing something else.
+            </p>
+          </div>
         </div>
       </div>
     </div>

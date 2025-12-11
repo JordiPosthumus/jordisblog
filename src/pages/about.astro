@@ -3,97 +3,16 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="About - Jordi's Blog">
-  <div class="bg-white py-16 sm:py-24">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="prose prose-lg max-w-none">
-        <!-- Hero Image -->
-        <div class="mb-8 text-center">
-          <img src="/about-hero.png" alt="A very serious duck giving financial advice" class="mx-auto rounded-lg shadow-md max-w-full h-auto">
-        </div>
-        
-        <h1>About Jordi's Blog</h1>
-        
-        <p class="lead text-xl font-medium">
-          This is where I blog about anything and everything that interests me. 
-          If you take any of it seriously, <strong>you are insane</strong>.
-        </p>
-
-        <h2>About Me (Allegedly)</h2>
-        <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-400">
-          <p class="text-gray-800 mb-0">
-            Hi, I'm Jordi. I write about random stuff that catches my attention - sometimes finance, 
-            sometimes technology, occasionally something completely unrelated like why cats think they're 
-            the rulers of everything. The only guarantee here is that if you use any of my advice for 
-            anything important, you'll probably regret it.
-          </p>
-        </div>
-
-        <h2>What You'll Find Here</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
-          <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-400">
-            <h3 class="text-xl font-semibold text-red-900 mb-2">Random Analysis</h3>
-            <p class="text-red-800">
-              Deep dives into whatever topic caught my fancy this week. 
-              Could be markets, could be memes, could be the existential crisis of why we have to click "I agree" on everything.
-            </p>
-          </div>
-          
-          <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-400">
-            <h3 class="text-xl font-semibold text-blue-900 mb-2">Tech Stuff</h3>
-            <p class="text-blue-800">
-              Occasional posts about programming, AI-generated art (like these silly images), 
-              and other tech things that make me feel slightly less lost in the modern world.
-            </p>
-          </div>
-          
-          <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-400">
-            <h3 class="text-xl font-semibold text-green-900 mb-2">Unasked Questions</h3>
-            <p class="text-green-800">
-              Why does toast always land butter-side down? How much is a reasonable amount 
-              to spend on domain names for ideas you'll never use? These and other burning questions.
-            </p>
-          </div>
-        </div>
-
-        <h2>Recent Stuff</h2>
-        
-        <article class="bg-gray-50 p-6 rounded-lg border">
-          <h3>AI Generated Silver Price Analysis - Dec 2025</h3>
-          <p class="text-gray-600 mb-4">
-            The blog's first actual "serious" post - apparently I made a whole website just to write about silver prices. 
-            It includes weird charts and even weirder AI-generated images of confused animals doing financial analysis.
-          </p>
-          
-          <div class="bg-white p-4 rounded border mb-4">
-            <h4 class="font-semibold mb-2">What You'll Find:</h4>
-            <ul class="list-disc list-inside space-y-1">
-              <li>Charts showing historical data that may or may not be accurate</li>
-              <li>Pictures of hamsters looking confused about economics</li>
-              <li>Analysis so thorough it might actually be useful (don't tell anyone)</li>
-            </ul>
-          </div>
-          
-          <p class="text-sm text-gray-500">
-            Published: December 10, 2025
-          </p>
-        </article>
-
-        <h2>Contact Info</h2>
-        
-        <div class="bg-orange-50 p-6 rounded-lg">
-          <p class="mb-4">
-            Want to chat about random stuff? Great! Just remember - I have absolutely no qualifications 
-            for anything I write about. If you need actual expertise, you're in the wrong place.
-          </p>
-          
-          <div class="text-sm text-orange-700">
-            <strong>Important:</strong> This is just one person's random thoughts on the internet. 
-            Don't mistake it for actual advice, research, or anything that should influence your life decisions.
-          </div>
-        </div>
-
-      </div>
+  <div class="bg-white py-24 sm:py-32 min-h-screen flex items-center justify-center">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl leading-tight">
+        This is where I blog about anything and everything that interests me.
+        <br />
+        <span class="text-blue-600">If you take any of it seriously, you are insane.</span>
+      </h1>
+      <p class="mt-8 text-lg text-gray-600">
+        (Just kidding... mostly.)
+      </p>
     </div>
   </div>
 </Layout>
