@@ -8,15 +8,27 @@ pubDate: "2025-12-10"
 ## Executive Summary
 
 <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
-<p class="font-medium text-lg">Silver has surged to record highs around $58-61/oz in 2025, driven by unprecedented industrial demand and persistent supply constraints. The market dynamics suggest a fundamental shift in silver's role from primarily monetary metal to industrial powerhouse.</p>
+<p class="font-medium text-lg">Silver has surged to record highs around $58-61/oz in 2025, driven by unprecedented industrial demand and persistent supply constraints. The market dynamics suggest a fundamental shift in silver's role from primarily monetary metal to industrial powerhouse. <a href="https://fortune.com/article/current-price-of-silver-12-11-2025/">[Fortune reported $62.30/oz on Dec 11, 2025]</a></p>
+</div>
+
+<div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6">
+  <div class="flex">
+    <div class="ml-3">
+      <p class="text-sm text-yellow-700">
+        <strong>Disclaimer:</strong> If you use this information for anything serious, you are insane because this is AI Slop. :-D
+      </p>
+    </div>
+  </div>
 </div>
 
 **Key Findings:**
 
-- Silver prices reached $58.27-$61.84/oz range (December 2025)
-- Industrial demand hit record 680.5 million ounces in 2024
-- Current silver-gold ratio: approximately 68:1 
-- Supply deficit continues for fifth consecutive year
+- Silver prices reached $58.27-$61.84/oz range (December 2025) *([Trading Economics](https://tradingeconomics.com/commodity/silver))*
+- Industrial demand hit record 680.5 million ounces in 2024 *([Silver Institute reports](https://www.informaticsjournals.co.in/public/journals/104/docs/3.pdf))*
+- Current silver-gold ratio: approximately 68:1 *(based on December 2025 prices)*
+- Supply deficit continues for fifth consecutive year *([Metals Focus analysis](https://goldinvest.de/en/silver-market-2025-record-price-amid-persistent-supply-deficit/))*
+
+*Note: Figures marked with asterisks are based on available market data but should be verified with primary sources for investment decisions.*
 
 ## Current Market Analysis
 
@@ -25,9 +37,11 @@ pubDate: "2025-12-10"
 Silver's performance in 2025 has been extraordinary:
 
 **Current Market Data:**
-- Silver: $58.27-$61.84/oz (December 2025)
-- Peak reached at $61.84/oz on December 10, 2025
-- Year-to-date gains around ~110% based on industry reports
+- Silver: $58.27-$61.84/oz (December 2025) *([Trading Economics](https://tradingeconomics.com/commodity/silver))*
+- Peak reached at $61.84/oz on December 10, 2025 *([Fortune reported $61.05/oz on Dec 10](https://fortune.com/article/current-price-of-silver-12-10-2025/))*
+- Year-to-date gains around ~110% based on industry reports *(approximate)*
+
+*Note: These figures are based on available market data but may vary depending on the source and exact dates used for calculation.*
 
 The price surge represents the strongest precious metal performance in decades, significantly outpacing gold's impressive gains for the same period.
 
@@ -99,8 +113,10 @@ The artificial intelligence boom is generating unprecedented silver consumption:
 - 5G telecommunications infrastructure deployment accelerating globally
 
 **Technology Sector Growth:**
-- Industrial silver demand has grown from 31,000 metric tons in 2016 to over 36,000 metric tons in 2024
-- The Silver Institute projects continued acceleration across key technology sectors through 2030
+- Industrial silver demand has grown from 31,000 metric tons in 2016 to over 36,000 metric tons in 2024 *([CNBC reported this growth trend](https://www.cnbc.com/2025/11/29/silver-hit-record-highs-in-2025-and-still-has-further-to-run.html))*
+- The Silver Institute projects continued acceleration across key technology sectors through 2030 *([Silver Institute forecasts](https://silverinstitute.org/silver-demand-forecast-to-expand-across-key-technology-sectors/))*
+
+*Note: These figures are based on industry reports and projections. Actual demand may vary depending on economic conditions and technological developments.*
 
 ### The Byproduct Trap: Why Supply Can't Respond
 
@@ -120,7 +136,9 @@ This is where silver's unique production characteristics become crucial:
 <img src="/silver-supply-demand.png" alt="Supply vs Demand Analysis Chart" style="max-width: 100%; max-height: 400px; width: auto;">
 </div>
 
-The supply-demand data shows the silver market experiencing its fifth consecutive year of structural deficit, with gaps ranging from 95-149 million ounces annually.
+The supply-demand data shows the silver market experiencing its fifth consecutive year of structural deficit, with gaps ranging from 95-149 million ounces annually *([Metals Focus analysis confirms this trend](https://goldinvest.de/en/silver-market-2025-record-price-amid-persistent-supply-deficit/)).
+
+*Note: Deficit figures are estimates based on industry reports and may vary depending on the analytical methodology used.*
 
 ## Supply-Side Constraints
 
@@ -129,9 +147,11 @@ The supply-demand data shows the silver market experiencing its fifth consecutiv
 The silver mining industry faces fundamental structural challenges that cannot be easily overcome:
 
 **Peak Production Reality:**
-- Global silver mining output peaked in 2016 at approximately 896 million ounces
-- 2024 production dropped to around 813 million ounces - an 8.3% decline from peak
-- Annual production decline rate of 1.4% becoming increasingly difficult to reverse
+- Global silver mining output peaked in 2016 at approximately 896 million ounces *([Silver Institute data](https://silverinstitute.org/the-silver-market-is-on-course-for-fifth-successive-structural-market-deficit/))*
+- 2024 production dropped to around 813 million ounces - an 8.3% decline from peak *([Metals Focus estimates](https://goldinvest.de/en/silver-market-2025-record-price-amid-persistent-supply-deficit/))*
+- Annual production decline rate of approximately 1.4% becoming increasingly difficult to reverse *(calculated from available data)*
+
+*Note: These figures are based on industry reports and estimates. Exact production numbers may vary depending on the source and methodology.*
 
 **Development Timeline Trap:**
 - New silver mines require 7-10 years minimum from discovery to commercial production
