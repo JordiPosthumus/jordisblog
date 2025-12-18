@@ -4,8 +4,8 @@ import Layout from '../layouts/Layout.astro';
 // Dynamically import all blog posts and sort by date (newest first)
 const postImportResult = await Astro.glob('../pages/posts/*.md');
 const posts = postImportResult
-  .map((post) => ({
-    ...post.frontmatter,
+  .map((post:any) => ({
+    ...(post.frontmatter as any),
     slug: post.file.split('/').pop().replace('.md', ''),
   }))
   .sort(
@@ -31,7 +31,7 @@ const posts = postImportResult
       <!-- Main Content: Two Column Layout -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <!-- Column A: Hero Image -->
-        <div class="lg:col-span-1 flex items-center justify-start">
+        <div class="lg:col-span-1 flex items-start justify-start">
 <img src="/z-image-20251211-170033-4.png" alt="Jordi's Blog Hero Image" 
                 class="w-full max-w-sm h-auto rounded-lg shadow-md">
         </div>

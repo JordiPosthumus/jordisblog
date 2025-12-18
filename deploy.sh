@@ -169,6 +169,13 @@ build_locally() {
         # Give it a moment to start
         sleep 2
         
+        # Open the site in the default browser (macOS) or provide URL for manual opening
+        if command -v open >/dev/null; then
+            open http://localhost:4321
+        else
+            echo "Please open http://localhost:4321 in your web browser."
+        fi
+        
         echo -e "${GREEN}🚀 Preview server running!${NC}"
         echo "Local URL: http://localhost:4321"
         echo ""
