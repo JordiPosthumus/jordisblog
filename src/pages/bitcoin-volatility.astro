@@ -1,0 +1,195 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Volatility Dashboard">
+  <main class="max-w-6xl mx-auto px-6 py-12">
+    <h1 class="text-4xl font-bold mb-4">Volatility Dashboard</h1>
+    <p class="text-gray-600 mb-8">3-year historical volatility analysis</p>
+
+    <div id="volatility-content">
+      <div class="text-center py-12">
+        <p class="text-gray-500">Loading volatility data...</p>
+      </div>
+    </div>
+
+    <script>
+      async function loadVolatilityData() {
+        try {
+          const response = await fetch('/bitcoin-volatility.json');
+          if (!response.ok) throw new Error('Failed to load data');
+          const data = await response.json();
+          renderDashboard(data);
+        } catch (error) {
+          document.getElementById('volatility-content').innerHTML =
+            '<div class="text-center py-12"><p class="text-red-500">Error loading volatility data. Please try again later.</p></div>';
+        }
+      }
+
+      function renderDashboard(data) {
+        const content = `
+          <div class="text-sm text-gray-500 border-b pb-4 mb-8">
+            Last updated: ${data.last_updated}
+          </div>
+
+          <div class="grid gap-8">
+            <!-- Bitcoin Section -->
+            <div>
+              <h2 class="text-2xl font-bold text-gray-800 mb-4">${data.bitcoin.symbol}</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="border rounded-lg p-5 bg-white shadow-sm">
+                  <h3 class="text-xl font-semibold text-gray-700 mb-4">7-Day Rolling Volatility</h3>
+                  <div class="relative h-80">
+                    <canvas id="btc-vol7d"></canvas>
+                  </div>
+                </div>
+
+                <div class="border rounded-lg p-5 bg-white shadow-sm">
+                  <h3 class="text-xl font-semibold text-gray-700 mb-4">30-Day Rolling Volatility</h3>
+                  <div class="relative h-80">
+                    <canvas id="btc-vol30d"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <div class="border rounded-lg p-5 bg-white shadow-sm">
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">Price History</h3>
+                <div class="relative h-80">
+                  <canvas id="btc-price"></canvas>
+                </div>
+              </div>
+            </div>
+
+            ${data.apple ? `
+            <!-- Apple Section -->
+            <div class="mt-12">
+              <h2 class="text-2xl font-bold text-gray-800 mb-4">${data.apple.symbol}</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="border rounded-lg p-5 bg-white shadow-sm">
+                  <h3 class="text-xl font-semibold text-gray-700 mb-4">7-Day Rolling Volatility</h3>
+                  <div class="relative h-80">
+                    <canvas id="aapl-vol7d"></canvas>
+                  </div>
+                </div>
+
+                <div class="border rounded-lg p-5 bg-white shadow-sm">
+                  <h3 class="text-xl font-semibold text-gray-700 mb-4">30-Day Rolling Volatility</h3>
+                  <div class="relative h-80">
+                    <canvas id="aapl-vol30d"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <div class="border rounded-lg p-5 bg-white shadow-sm">
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">Price History</h3>
+                <div class="relative h-80">
+                  <canvas id="aapl-price"></canvas>
+                </div>
+              </div>
+            </div>
+            ` : ''}
+
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+              <h3 class="font-semibold text-yellow-800 mb-2">Volatility Interpretation</h3>
+              <ul class="text-sm text-yellow-700 space-y-1">
+                <li>• Annualized volatility shown for both 7-day and 30-day rolling windows</li>
+                <li>• Higher values indicate more price fluctuation/risk</li>
+                <li>• 30-day volatility is smoother and shows longer-term trends</li>
+              </ul>
+            </div>
+
+            <div class="text-sm text-gray-500 border-t pt-4">
+              <p>Data Sources: Kraken API (Bitcoin), yfinance (Apple)</p>
+              <p>Calculation Method: Standard deviation of logarithmic returns × √252 (annualized)</p>
+              <p>Data Range: 3 years of historical data</p>
+            </div>
+          </div>
+        `;
+        document.getElementById('volatility-content').innerHTML = content;
+
+        renderCharts(data);
+      }
+
+      function renderCharts(data) {
+        const chartOptions = {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false }
+          },
+          scales: {
+            y: {
+              grid: { color: 'rgba(0,0,0,0.1)' }
+            },
+            x: {
+              grid: { display: false },
+              ticks: { maxTicksLimit: 12 }
+            }
+          }
+        };
+
+        const volChartOptions = JSON.parse(JSON.stringify(chartOptions));
+        volChartOptions.scales.y.ticks = {
+          callback: function(value) {
+            return value + '%';
+          }
+        };
+
+        const priceChartOptions = JSON.parse(JSON.stringify(chartOptions));
+        priceChartOptions.scales.y.ticks = {
+          callback: function(value) {
+            return '$' + value.toLocaleString();
+          }
+        };
+
+        function renderSingleChart(canvasId, chartData, color) {
+          const dataLength = chartData.dates.length;
+          const pointRadiusArray = Array(dataLength - 1).fill(0);
+          pointRadiusArray.push(5);
+
+          const pointBgColorArray = Array(dataLength - 1).fill('transparent');
+          pointBgColorArray.push('black');
+
+          const pointBorderColorArray = Array(dataLength - 1).fill('transparent');
+          pointBorderColorArray.push('black');
+
+          new Chart(document.getElementById(canvasId), {
+            type: 'line',
+            data: {
+              labels: chartData.dates,
+              datasets: [{
+                label: 'Value',
+                data: chartData.data,
+                borderColor: color,
+                backgroundColor: color.replace('rgb', 'rgba').replace(')', ', 0.1)'),
+                fill: true,
+                tension: 0.4,
+                pointRadius: pointRadiusArray,
+                pointBackgroundColor: pointBgColorArray,
+                pointBorderColor: pointBorderColorArray,
+                borderWidth: 2
+              }]
+            },
+            options: canvasId.includes('price') ? priceChartOptions : volChartOptions
+          });
+        }
+
+        // Bitcoin charts
+        renderSingleChart('btc-vol7d', { dates: data.bitcoin.dates, data: data.bitcoin.rolling_vol_7d }, 'rgb(249, 115, 22)');
+        renderSingleChart('btc-vol30d', { dates: data.bitcoin.dates, data: data.bitcoin.rolling_vol_30d }, 'rgb(239, 68, 68)');
+        renderSingleChart('btc-price', { dates: data.bitcoin.dates, data: data.bitcoin.prices }, 'rgb(249, 115, 22)');
+
+        // Apple charts
+        if (data.apple) {
+          renderSingleChart('aapl-vol7d', { dates: data.apple.dates, data: data.apple.rolling_vol_7d }, 'rgb(59, 130, 246)');
+          renderSingleChart('aapl-vol30d', { dates: data.apple.dates, data: data.apple.rolling_vol_30d }, 'rgb(37, 99, 235)');
+          renderSingleChart('aapl-price', { dates: data.apple.dates, data: data.apple.prices }, 'rgb(59, 130, 246)');
+        }
+      }
+
+      loadVolatilityData();
+    </script>
+  </main>
+</Layout>
