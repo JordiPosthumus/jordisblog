@@ -91,6 +91,66 @@ import Layout from '../layouts/Layout.astro';
             </div>
             ` : ''}
 
+            ${data.mstr ? `
+            <!-- MicroStrategy Section -->
+            <div class="mt-12">
+              <h2 class="text-2xl font-bold text-gray-800 mb-4">${data.mstr.symbol}</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="border rounded-lg p-5 bg-white shadow-sm">
+                  <h3 class="text-xl font-semibold text-gray-700 mb-4">7-Day Rolling Volatility</h3>
+                  <div class="relative h-80">
+                    <canvas id="mstr-vol7d"></canvas>
+                  </div>
+                </div>
+
+                <div class="border rounded-lg p-5 bg-white shadow-sm">
+                  <h3 class="text-xl font-semibold text-gray-700 mb-4">30-Day Rolling Volatility</h3>
+                  <div class="relative h-80">
+                    <canvas id="mstr-vol30d"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <div class="border rounded-lg p-5 bg-white shadow-sm">
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">Price History</h3>
+                <div class="relative h-80">
+                  <canvas id="mstr-price"></canvas>
+                </div>
+              </div>
+            </div>
+            ` : ''}
+
+            ${data.silver ? `
+            <!-- Silver Section -->
+            <div class="mt-12">
+              <h2 class="text-2xl font-bold text-gray-800 mb-4">${data.silver.symbol}</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="border rounded-lg p-5 bg-white shadow-sm">
+                  <h3 class="text-xl font-semibold text-gray-700 mb-4">7-Day Rolling Volatility</h3>
+                  <div class="relative h-80">
+                    <canvas id="silver-vol7d"></canvas>
+                  </div>
+                </div>
+
+                <div class="border rounded-lg p-5 bg-white shadow-sm">
+                  <h3 class="text-xl font-semibold text-gray-700 mb-4">30-Day Rolling Volatility</h3>
+                  <div class="relative h-80">
+                    <canvas id="silver-vol30d"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <div class="border rounded-lg p-5 bg-white shadow-sm">
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">Price History</h3>
+                <div class="relative h-80">
+                  <canvas id="silver-price"></canvas>
+                </div>
+              </div>
+            </div>
+            ` : ''}
+
             <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
               <h3 class="font-semibold text-yellow-800 mb-2">Volatility Interpretation</h3>
               <ul class="text-sm text-yellow-700 space-y-1">
@@ -101,7 +161,7 @@ import Layout from '../layouts/Layout.astro';
             </div>
 
             <div class="text-sm text-gray-500 border-t pt-4">
-              <p>Data Sources: Kraken API (Bitcoin), yfinance (Apple)</p>
+              <p>Data Sources: Kraken API (Bitcoin), yfinance (Apple, MSTR, Silver/SLV)</p>
               <p>Calculation Method: Standard deviation of logarithmic returns × √252 (annualized)</p>
               <p>Data Range: 3 years of historical data</p>
             </div>
@@ -186,6 +246,20 @@ import Layout from '../layouts/Layout.astro';
           renderSingleChart('aapl-vol7d', { dates: data.apple.dates, data: data.apple.rolling_vol_7d }, 'rgb(59, 130, 246)');
           renderSingleChart('aapl-vol30d', { dates: data.apple.dates, data: data.apple.rolling_vol_30d }, 'rgb(37, 99, 235)');
           renderSingleChart('aapl-price', { dates: data.apple.dates, data: data.apple.prices }, 'rgb(59, 130, 246)');
+        }
+
+        // MSTR charts
+        if (data.mstr) {
+          renderSingleChart('mstr-vol7d', { dates: data.mstr.dates, data: data.mstr.rolling_vol_7d }, 'rgb(16, 185, 129)');
+          renderSingleChart('mstr-vol30d', { dates: data.mstr.dates, data: data.mstr.rolling_vol_30d }, 'rgb(5, 150, 105)');
+          renderSingleChart('mstr-price', { dates: data.mstr.dates, data: data.mstr.prices }, 'rgb(16, 185, 129)');
+        }
+
+        // Silver charts
+        if (data.silver) {
+          renderSingleChart('silver-vol7d', { dates: data.silver.dates, data: data.silver.rolling_vol_7d }, 'rgb(168, 162, 158)');
+          renderSingleChart('silver-vol30d', { dates: data.silver.dates, data: data.silver.rolling_vol_30d }, 'rgb(120, 113, 108)');
+          renderSingleChart('silver-price', { dates: data.silver.dates, data: data.silver.prices }, 'rgb(168, 162, 158)');
         }
       }
 

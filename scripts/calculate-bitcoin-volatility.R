@@ -130,6 +130,54 @@ if (file.exists(aapl_data_file)) {
   aapl_chart_data <- NULL
 }
 
+# Load MSTR data from Python script
+mstr_data_file <- '/Users/jordiposthumus/Documents/Projects/SilverBug/jordisblog/public/mstr-data.json'
+
+if (file.exists(mstr_data_file)) {
+  cat("Loading MicroStrategy data from JSON file...\n")
+  
+  mstr_json <- readLines(mstr_data_file, warn = FALSE)
+  mstr_raw <- fromJSON(paste(mstr_json, collapse = ""))
+  
+  mstr_dt <- as.data.table(mstr_raw)
+  mstr_dt[, Date := as.Date(date)]
+  setnames(mstr_dt, "price", "Close")
+  
+  cat(paste("Loaded", nrow(mstr_dt), "days of MicroStrategy data\n"))
+  
+  # Calculate volatility for MSTR
+  mstr_chart_data <- calculate_rolling_volatility(mstr_dt)
+  
+  cat(paste("Generated", nrow(mstr_chart_data), "MSTR chart data points (3 years)\n"))
+} else {
+  cat("Warning: MSTR data file not found. Skipping MSTR charts.\n")
+  mstr_chart_data <- NULL
+}
+
+# Load Silver data from Python script
+silver_data_file <- '/Users/jordiposthumus/Documents/Projects/SilverBug/jordisblog/public/silver-data.json'
+
+if (file.exists(silver_data_file)) {
+  cat("Loading Silver spot price data from JSON file...\n")
+  
+  silver_json <- readLines(silver_data_file, warn = FALSE)
+  silver_raw <- fromJSON(paste(silver_json, collapse = ""))
+  
+  silver_dt <- as.data.table(silver_raw)
+  silver_dt[, Date := as.Date(date)]
+  setnames(silver_dt, "price", "Close")
+  
+  cat(paste("Loaded", nrow(silver_dt), "days of Silver data\n"))
+  
+  # Calculate volatility for Silver
+  silver_chart_data <- calculate_rolling_volatility(silver_dt)
+  
+  cat(paste("Generated", nrow(silver_chart_data), "Silver chart data points (3 years)\n"))
+} else {
+  cat("Warning: Silver data file not found. Skipping Silver charts.\n")
+  silver_chart_data <- NULL
+}
+
 # Create output object
 output <- list(
   last_updated = format(Sys.time(), "%Y-%m-%d %H:%M:%S UTC"),
@@ -150,6 +198,28 @@ if (!is.null(aapl_chart_data) && nrow(aapl_chart_data) > 0) {
     prices = aapl_chart_data$price,
     rolling_vol_7d = aapl_chart_data$rolling_vol_7d,
     rolling_vol_30d = aapl_chart_data$rolling_vol_30d
+  )
+}
+
+# Add MSTR data if available
+if (!is.null(mstr_chart_data) && nrow(mstr_chart_data) > 0) {
+  output$mstr <- list(
+    symbol = "MicroStrategy (MSTR)",
+    dates = mstr_chart_data$date,
+    prices = mstr_chart_data$price,
+    rolling_vol_7d = mstr_chart_data$rolling_vol_7d,
+    rolling_vol_30d = mstr_chart_data$rolling_vol_30d
+  )
+}
+
+# Add Silver data if available
+if (!is.null(silver_chart_data) && nrow(silver_chart_data) > 0) {
+  output$silver <- list(
+    symbol = "Silver (SLV)",
+    dates = silver_chart_data$date,
+    prices = silver_chart_data$price,
+    rolling_vol_7d = silver_chart_data$rolling_vol_7d,
+    rolling_vol_30d = silver_chart_data$rolling_vol_30d
   )
 }
 

@@ -8,12 +8,26 @@ echo "Starting Volatility Dashboard Update - $(date)"
 # Change to blog directory
 cd /Users/jordiposthumus/Documents/Projects/SilverBug/jordisblog
 
-# Step 1: Fetch Apple stock data using Python
-echo "Step 1: Fetching Apple stock data..."
+# Step 1: Fetch stock data using Python
+echo "Step 1: Fetching stock data (Apple, MSTR, Silver)..."
 source .venv/bin/activate && python3 scripts/fetch-apple-data.py
 
 if [ $? -ne 0 ]; then
     echo "Error: Failed to fetch Apple data"
+    exit 1
+fi
+
+source .venv/bin/activate && python3 scripts/fetch-mstr-data.py
+
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to fetch MSTR data"
+    exit 1
+fi
+
+source .venv/bin/activate && python3 scripts/fetch-silver-data.py
+
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to fetch Silver data"
     exit 1
 fi
 
@@ -28,7 +42,7 @@ fi
 
 # Step 3: Commit changes to git
 echo "Step 3: Committing changes..."
-git add public/bitcoin-volatility.json public/aapl-data.json
+git add public/bitcoin-volatility.json public/aapl-data.json public/mstr-data.json public/silver-data.json
 
 # Check if there are changes to commit
 if git diff --quiet && git diff --cached --quiet; then
